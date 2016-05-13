@@ -7,5 +7,8 @@ Vagrant.configure(2) do |config|
     dev1.vm.network "forwarded_port", guest: 80, host: 6060, id: "nginx"
     dev1.vm.provision "shell", path: "provision.sh"
 
+    config.vm.synced_folder "./", "/vagrant", disabled: true
+    config.vm.synced_folder "./html", "/vagrant/html"
+
   end
 end
